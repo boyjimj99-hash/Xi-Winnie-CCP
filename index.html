@@ -2,19 +2,42 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>西洋棋遊戲</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chess Game</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>♟ 西洋棋遊戲</h1>
+  <main class="app">
+    <header class="hero">
+      <p class="eyebrow">Classic Board Game</p>
+      <h1>西洋棋</h1>
+      <p class="subtitle">雙人同機對戰。點選棋子後，再點選目標格移動。</p>
+    </header>
 
-  <div id="game"></div>
-
-  <div id="status">白方回合</div>
-
-  <button onclick="resetGame()">重新開始</button>
-
+    <section class="layout">
+      <aside class="panel">
+        <div class="status-card"><span>目前回合</span><strong id="turnText">白方</strong></div>
+        <div class="status-card"><span>局勢狀態</span><strong id="statusText">遊戲開始</strong></div>
+        <div class="captured">
+          <h2>被吃掉的棋子</h2>
+          <div><span>白方吃掉</span><p id="capturedByWhite">無</p></div>
+          <div><span>黑方吃掉</span><p id="capturedByBlack">無</p></div>
+        </div>
+        <button id="resetBtn" class="primary-btn" type="button">重新開始</button>
+        <div class="rules">
+          <h2>規則</h2>
+          <ul>
+            <li>白方先手。</li>
+            <li>會自動判斷合法走法。</li>
+            <li>將軍、將死、無合法步和棋皆會判定。</li>
+            <li>兵到最後一排會自動升變為后。</li>
+            <li>支援王車易位；目前不支援吃過路兵。</li>
+          </ul>
+        </div>
+      </aside>
+      <section class="board-wrap"><div id="board" class="board" aria-label="西洋棋棋盤"></div></section>
+    </section>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>
